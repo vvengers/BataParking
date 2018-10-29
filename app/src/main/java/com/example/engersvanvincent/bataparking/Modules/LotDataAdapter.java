@@ -90,18 +90,18 @@ public class LotDataAdapter extends RecyclerView.Adapter<LotDataAdapter.LotDataV
 
         int totalParkedCar = data.getParkedCarsId().size();
         float relation = (float) totalParkedCar / data.getTotParkingSpaces();
-        String color = "#A50000";
+        int color = context.getResources().getColor(R.color.circle_red);
         if(relation < 0.3){
-            color = "#00A50B";
+            color = context.getResources().getColor(R.color.circle_green);
         }else if(relation < 0.5){
-            color = "#74A500";
+            color = context.getResources().getColor(R.color.circle_yellow_green);
         }else if(relation < 0.7){
-            color = "#A5A500";
+            color = context.getResources().getColor(R.color.circle_yellow);
         }else if (relation < 0.8){
-            color = "#A55800";
+            color = context.getResources().getColor(R.color.circle_orange);
         }
         lotDataViewHolder.progBar.setProgressMax(data.getTotParkingSpaces());
-        lotDataViewHolder.progBar.setColor(Color.parseColor(color));
+        lotDataViewHolder.progBar.setColor(color);
         lotDataViewHolder.progBar.setBackgroundColor(Color.parseColor("#D8D8D8"));
         lotDataViewHolder.progBar.setProgress(totalParkedCar);
 
