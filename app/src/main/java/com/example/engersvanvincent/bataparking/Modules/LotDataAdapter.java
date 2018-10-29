@@ -63,7 +63,7 @@ public class LotDataAdapter extends RecyclerView.Adapter<LotDataAdapter.LotDataV
 
     @Override
     public void onBindViewHolder(@NonNull final LotDataAdapter.LotDataViewHolder lotDataViewHolder, int i) {
-        final LotData data = this.mDataSet.get(i);
+        final LotData data = mDataSet.get(i);
 
        lotDataViewHolder.navigateButton.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -87,38 +87,6 @@ public class LotDataAdapter extends RecyclerView.Adapter<LotDataAdapter.LotDataV
        });
 
         lotDataViewHolder.lotNameView.setText(data.getParkingLotName());
-
-
-
-        // Start of mockdata:
-
-        ArrayList list = new ArrayList();
-//        list.add(new Car("",false));
-//        list.add(new Car("",false));
-//        list.add(new Car("",false));
-//        list.add(new Car("",false));
-//        list.add(new Car("",false));
-//        list.add(new Car("",false));
-//        list.add(new Car("",false));
-//        list.add(new Car("",false));
-//        list.add(new Car("",false));
-//        list.add(new Car("",false));
-
-        ArrayList coming = new ArrayList();
-//        coming.add(new Car("",false));
-//        coming.add(new Car("",false));
-
-
-        data.setAvaParkingTime(20);
-
-        data.setComingCarsId(coming);
-        data.setParkedCarsId(list);
-
-
-
-        //End of mockdata.
-
-
 
         int totalParkedCar = data.getParkedCarsId().size();
         float relation = (float) totalParkedCar / data.getTotParkingSpaces();
