@@ -86,6 +86,8 @@
                        android:layout_width="400px"
                        android:layout_height="wrap_content"
                        android:hint="Licence Plate"
+                       android:text=""
+                       android:id="@+id/plateEdit"
                        android:lines="1"
                        android:backgroundTint="@color/colorPrimary"/>
 

@@ -1,16 +1,17 @@
 package com.example.engersvanvincent.bataparking;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.engersvanvincent.bataparking.Modules.GooglePay;
 import com.example.engersvanvincent.bataparking.Modules.LotData;
@@ -26,8 +27,6 @@ import com.google.android.gms.wallet.PaymentsClient;
 import com.google.android.gms.wallet.Wallet;
 import com.google.android.gms.wallet.WalletConstants;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Optional;
@@ -38,6 +37,8 @@ public class PaymentActivity extends AppCompatActivity {
     private PaymentsClient mPaymentsClient;
     private Button payButton;
     private static final int LOAD_PAYMENT_DATA_REQUEST_CODE = 42;
+    private EditText plateEdit;
+    private Context context = this;
 
 
     @Override
@@ -48,6 +49,7 @@ public class PaymentActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        plateEdit = findViewById(R.id.plateEdit);
         data = getIntent().getParcelableExtra("data");
         TextView name = findViewById(R.id.payment_parking_lot_name);
         name.setText(data.getParkingLotName());
@@ -91,7 +93,17 @@ public class PaymentActivity extends AppCompatActivity {
                                         new View.OnClickListener() {
                                             @Override
                                             public void onClick(View view) {
-                                                requestPayment(view);
+                                                // If a licence plate has been entered start
+                                                // request payment, otherwise toast.
+                                                if(!plateEdit.getText().toString().equals("")){
+                                                    requestPayment(view);
+                                                }else{
+                                                    Toast.makeText(
+                                                            context,
+                                                            "Place enter a licence plate number.",
+                                                            Toast.LENGTH_LONG)
+                                                            .show();
+                                                }
                                             }
                                         });
                                 payButton.setVisibility(View.VISIBLE);

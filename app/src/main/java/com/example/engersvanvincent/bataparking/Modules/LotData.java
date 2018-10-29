@@ -18,6 +18,16 @@ public class LotData implements Parcelable {
     private final String longitude;
     private final String city;
 
+    public static LotData lotCreator(String name, String city, int totSpaces,
+                                     String latitude, String longitude, int totalCars){
+        ArrayList<Car> parkedCars = new ArrayList<>();
+        for(int i = 0; i < totalCars; i++){
+            parkedCars.add(new Car(false));
+        }
+        return new LotData("", name, city, totSpaces,
+                parkedCars, new ArrayList<Car>(), latitude, longitude);
+    }
+
 
     public LotData(String parkingLotId, String parkingLotName,  String city, int totParkingSpaces,
                    ArrayList<Car> parkedCarsId, ArrayList<Car> comingCarsId ,
