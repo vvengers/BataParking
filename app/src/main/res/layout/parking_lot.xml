@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="15px"
+    android:paddingHorizontal="30px">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardBackgroundColor="@android:color/white"
+        card_view:cardElevation="2dp"
+        card_view:cardUseCompatPadding="true"
+        android:padding="20px">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteY="10dp"
+        android:layout_margin="20px">
+
+
+        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+            android:id="@+id/lotProgBar"
+            android:layout_width="200px"
+            android:layout_height="200px"
+            app:cpb_background_progressbar_color="#FFCDD2"
+            app:cpb_background_progressbar_width="30px"
+            app:cpb_progressbar_color="#F44336"
+            app:cpb_progressbar_width="35px"
+            app:cpb_progress_max="100" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="left"
+            android:orientation="vertical"
+            android:paddingLeft="20px">
+
+            <TextView
+                android:id="@+id/lotName"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="bottom"
+                android:text="Parking lot one"
+                android:textAlignment="center"
+                android:textSize="50px" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="top"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/estWaitingTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="bottom"
+                    android:text="12 min wait"
+                    android:textAlignment="center"
+                    android:textSize="30px" />
+
+                <TextView
+                    android:id="@+id/spotsLeft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:gravity="center_horizontal"
+                    android:paddingLeft="10px"
+                    android:text="10 spots left"
+                    android:textSize="30px" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_weight="1"
+                    android:text="Navigate"
+                    android:layout_width="0dp"
+                    android:textSize="25px"
+                    android:layout_height="80px"
+                    android:background="@color/colorAccent"
+                    android:id="@+id/navigate_button"
+                    android:textColor="@color/white"
+                    android:layout_margin="20px"/>
+
+                <Button
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:textSize="25px"
+                    android:layout_height="80px"
+                    android:background="@color/colorPrimary"
+                    android:text="Reserve"
+                    android:id="@+id/reserve_button"
+                    android:textColor="@color/white"
+                    android:layout_margin="20px"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</android.support.constraint.ConstraintLayout>
