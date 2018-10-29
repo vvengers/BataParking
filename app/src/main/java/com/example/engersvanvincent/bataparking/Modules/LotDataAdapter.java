@@ -109,10 +109,12 @@ public class LotDataAdapter extends RecyclerView.Adapter<LotDataAdapter.LotDataV
 
         int spotsLeft =  data.getTotParkingSpaces() - totalParkedCar;
         lotDataViewHolder.spotsLeftView.setText(
-                Integer.toString(spotsLeft) + ((spotsLeft == 1) ? "spot" : "spots") + " left.");
+                Integer.toString(spotsLeft) + ((spotsLeft == 1) ? " spot" : " spots") + " left.");
 
         //TODO: don't just multiply times the avaParkingTime but take into acount how long the car has been parked there.
-        int waitingTime =  (data.getComingCarsId().size() - spotsLeft) * data.getAvaParkingTime();
+        int mockwaitingTime = 20;
+        int mockComingcars = 10;
+        int waitingTime =  (mockComingcars - spotsLeft) * mockwaitingTime;
         waitingTime = (waitingTime < 0) ? 0 : waitingTime;
         lotDataViewHolder.estWaitingTimeView.setText(
                 Integer.toString(waitingTime) + " minutes waiting time.");

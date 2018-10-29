@@ -100,7 +100,7 @@ public class PaymentActivity extends AppCompatActivity {
                                                 }else{
                                                     Toast.makeText(
                                                             context,
-                                                            "Place enter a licence plate number.",
+                                                            "Please enter a licence plate number.",
                                                             Toast.LENGTH_LONG)
                                                             .show();
                                                 }
