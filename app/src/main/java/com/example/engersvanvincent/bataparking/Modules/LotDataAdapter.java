@@ -80,6 +80,7 @@ public class LotDataAdapter extends RecyclerView.Adapter<LotDataAdapter.LotDataV
        lotDataViewHolder.reserveButton.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
+               // Start payment activity
                Intent intent = new Intent(context, PaymentActivity.class);
                intent.putExtra("data",  data);
                context.startActivity(intent);
@@ -105,13 +106,10 @@ public class LotDataAdapter extends RecyclerView.Adapter<LotDataAdapter.LotDataV
         lotDataViewHolder.progBar.setBackgroundColor(Color.parseColor("#D8D8D8"));
         lotDataViewHolder.progBar.setProgress(totalParkedCar);
 
-
-
         int spotsLeft =  data.getTotParkingSpaces() - totalParkedCar;
         lotDataViewHolder.spotsLeftView.setText(
                 Integer.toString(spotsLeft) + ((spotsLeft == 1) ? " spot" : " spots") + " left.");
 
-        //TODO: don't just multiply times the avaParkingTime but take into acount how long the car has been parked there.
         int mockwaitingTime = 20;
         int mockComingcars = 10;
         int waitingTime =  (mockComingcars - spotsLeft) * mockwaitingTime;

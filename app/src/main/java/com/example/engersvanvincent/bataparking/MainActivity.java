@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseFirestore database;
 //    private LinearLayout goingLayout;
     private MainActivity context;
-    private String collectionString = "parking_lots";
+    public static String collectionString = "parking_lots";
 
 
     @Override
@@ -77,9 +77,6 @@ public class MainActivity extends AppCompatActivity {
         database.collection(collectionString).add(LotData.lotCreator("Hengelosestraat", "Enschede", 50, "52.235698", "6.852903", 28)
         );
 */
-
-
-
         mRecyclerView.setLayoutManager(mLayoutManager);
         mAdapter = new LotDataAdapter(context, new ArrayList<LotData>());
         mRecyclerView.setAdapter(mAdapter);
